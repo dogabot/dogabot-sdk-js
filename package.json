@@ -1,0 +1,46 @@
+{
+  "name": "@dogabot/sdk",
+  "version": "0.1.0",
+  "description": "Official dogabot REST API SDK for JavaScript/TypeScript (backend-first)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dogabot/dogabot-sdk-js.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dogabot",
+    "trading",
+    "sdk",
+    "api"
+  ]
+}

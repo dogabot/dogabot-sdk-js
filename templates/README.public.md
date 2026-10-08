@@ -4,6 +4,7 @@ Official REST client for the [dogabot public API](https://docs.dogabot.com/).
 
 ```bash
 npm i @dogabot/sdk
+# If the npm package is not visible yet: npm i github:dogabot/dogabot-sdk-js
 ```
 
 ```ts

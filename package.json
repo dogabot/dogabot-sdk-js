@@ -1,6 +1,6 @@
 {
   "name": "@dogabot/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official dogabot REST API SDK for JavaScript/TypeScript (backend-first)",
   "type": "module",
   "main": "./dist/index.js",

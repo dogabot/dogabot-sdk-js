@@ -44,6 +44,15 @@ export class Resources {
     })
   }
 
+  async getMeAvailablecash(options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/me/available-cash"
+    return this.client.request({
+      ...options,
+      method: 'GET',
+      path,
+    })
+  }
+
   async getMeOrders(options?: RequestOptions): Promise<JsonValue> {
     const path = "/api/v1/me/orders"
     return this.client.request({
@@ -83,6 +92,26 @@ export class Resources {
 
   async postAutomationsSummary(body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
     const path = "/api/v1/automations/summary"
+    return this.client.request({
+      ...options,
+      method: 'POST',
+      path,
+      body: body ?? options?.body,
+    })
+  }
+
+  async postAutomationsStatuscounts(body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/automations/status-counts"
+    return this.client.request({
+      ...options,
+      method: 'POST',
+      path,
+      body: body ?? options?.body,
+    })
+  }
+
+  async postAutomationsSummaryByids(body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/automations/summary/by-ids"
     return this.client.request({
       ...options,
       method: 'POST',
@@ -479,6 +508,15 @@ export class Resources {
     })
   }
 
+  async getBacktestCommunityexamples(options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/backtest/community-examples"
+    return this.client.request({
+      ...options,
+      method: 'GET',
+      path,
+    })
+  }
+
   async getBacktestByJob_id(pathParams: PathParams, options?: RequestOptions): Promise<JsonValue> {
     const path = "/api/v1/backtest/" + encodeURIComponent(String(pathParams.job_id)) + ""
     return this.client.request({
@@ -761,8 +799,28 @@ export class Resources {
     })
   }
 
+  async getExchangeLeveragecapabilities(options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/exchange/leverage-capabilities"
+    return this.client.request({
+      ...options,
+      method: 'GET',
+      path,
+    })
+  }
+
   async postExchangeLeverage(body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
     const path = "/api/v1/exchange/leverage"
+    return this.client.request({
+      ...options,
+      method: 'POST',
+      path,
+      body: body ?? options?.body,
+      write: true,
+    })
+  }
+
+  async postExchangeMarginmode(body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/exchange/margin-mode"
     return this.client.request({
       ...options,
       method: 'POST',
@@ -1095,6 +1153,38 @@ export class Resources {
     })
   }
 
+  async postBacktestCommunityexampleByJob_id(pathParams: PathParams, body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/backtest/" + encodeURIComponent(String(pathParams.job_id)) + "/community-example"
+    return this.client.request({
+      ...options,
+      method: 'POST',
+      path,
+      body: body ?? options?.body,
+      write: true,
+    })
+  }
+
+  async patchBacktestCommunityexampleByJob_id(pathParams: PathParams, body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/backtest/" + encodeURIComponent(String(pathParams.job_id)) + "/community-example"
+    return this.client.request({
+      ...options,
+      method: 'PATCH',
+      path,
+      body: body ?? options?.body,
+      write: true,
+    })
+  }
+
+  async deleteBacktestCommunityexampleByJob_id(pathParams: PathParams, options?: RequestOptions): Promise<JsonValue> {
+    const path = "/api/v1/backtest/" + encodeURIComponent(String(pathParams.job_id)) + "/community-example"
+    return this.client.request({
+      ...options,
+      method: 'DELETE',
+      path,
+      write: true,
+    })
+  }
+
   async postTerminalPlaceorder(body?: JsonValue, options?: RequestOptions): Promise<JsonValue> {
     const path = "/api/v1/terminal/place-order"
     return this.client.request({
@@ -1184,11 +1274,14 @@ export const OPERATION_IDS = [
   "getMeStatistics",
   "getMePositions",
   "getMePositionlegs",
+  "getMeAvailablecash",
   "getMeOrders",
   "getMeSignals",
   "getMeEmitters",
   "postMeEmittersSummary",
   "postAutomationsSummary",
+  "postAutomationsStatuscounts",
+  "postAutomationsSummaryByids",
   "getFollowers",
   "postFollowers",
   "getFollowersById",
@@ -1229,6 +1322,7 @@ export const OPERATION_IDS = [
   "getBacktestQuota",
   "getBacktests",
   "getBacktestsSummary",
+  "getBacktestCommunityexamples",
   "getBacktestByJob_id",
   "getBacktestSignalsByJob_id",
   "getBacktestBulkSeed",
@@ -1260,7 +1354,9 @@ export const OPERATION_IDS = [
   "getExchangeTrades",
   "getExchangeIncome",
   "getExchangeOpenablenotional",
+  "getExchangeLeveragecapabilities",
   "postExchangeLeverage",
+  "postExchangeMarginmode",
   "postExchangeCancelorder",
   "postExchangeCancelorders",
   "getCredentials",
@@ -1292,6 +1388,9 @@ export const OPERATION_IDS = [
   "postBacktestBulkBatchesRerunByBatch_id",
   "postBacktestBulkBatchesCancelByBatch_id",
   "postBacktestCancelByJob_id",
+  "postBacktestCommunityexampleByJob_id",
+  "patchBacktestCommunityexampleByJob_id",
+  "deleteBacktestCommunityexampleByJob_id",
   "postTerminalPlaceorder",
   "postTerminalCancelorder",
   "getAiChatQuota",
